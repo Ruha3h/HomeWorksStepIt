@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary  xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="Resources.DarkTheme">
+
+    <Color    x:Key="PageMainTextColor">            #FFFFFFFF             </Color>
+    <Color    x:Key="PageTextColor">                #AA303030             </Color>
+    <Color    x:Key="PageUrlTextColor">             #FF00AAFF             </Color>
+    <Color    x:Key="PageMainStatusBarColor">       #FF181818             </Color>
+    <Color    x:Key="PageBackgroundColor">          #FF303030             </Color>
+    <Color    x:Key="PageMainColor">                #FF242424             </Color>
+    <Color    x:Key="PageTransparentMainColor">     #AA242424             </Color>
+    <Color    x:Key="PageLightMainColor">           #FF464646             </Color>
+    <Color    x:Key="PageTransparentLightMainColor">#AA464646             </Color>
+    <Color    x:Key="PageVeryLightMainColor">       #FF525252             </Color>
+    <x:String x:Key="PageGameImagePath">            LightGame.png         </x:String>
+    <x:String x:Key="PageLikeImagePath">            LightLike.png         </x:String>
+    <x:String x:Key="PageSettingsImagePath">        LightSettings.png     </x:String>
+    <x:String x:Key="PageSearchImagePath">          LightSearch.png       </x:String>
+    <x:String x:Key="PageOptionsSearchImagePath">   LightOptionsSearch.png</x:String>
+    <x:String x:Key="PageAddImagePath">             LightAdd.png          </x:String>
+    <x:String x:Key="PageCancelImagePath">          LightCancel.png       </x:String>
+</ResourceDictionary>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:GameSearchAppXamarin.Models"
+             xmlns:res="clr-namespace:GameSearchAppXamarin.Resources;assembly=GameSearchAppXamarin"
+             mc:Ignorable="d"
+             x:Name="OptionSearchContentPage"
+             x:Class="GameSearchAppXamarin.Views.OptionsSearchPage">
+    <ContentPage.Content>
+        <StackLayout 
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <CollectionView 
+                ItemsSource="{Binding QueryItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout
+                            Orientation="Horizontal">
+                            <Label
+                                Text="{x:Static res:LanguageResource.OptionSearchQuerry}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Margin="5"
+                                TextColor="{DynamicResource PageMainTextColor}"/>
+                            <Picker 
+                                x:Name="QuerryPicker"
+                                HorizontalOptions="FillAndExpand"
+                                TextColor="{DynamicResource PageMainTextColor}"
+                                SelectedItem="{Binding QuerrySelectedItem}"
+                                SelectedIndex="{Binding SelectedIndex}"
+                                ItemsSource="{Binding TypeItems}"/>
+                            <Label
+                                Text="{x:Static res:LanguageResource.OptionSearchType}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Margin="5"
+                                TextColor="{DynamicResource PageMainTextColor}"/>
+                            <Picker 
+                                HorizontalOptions="FillAndExpand"
+                                TextColor="{DynamicResource PageMainTextColor}"
+                                SelectedIndex="{Binding Source={x:Reference QuerryPicker} , Path=SelectedItem.SelectedIndex}"
+                                ItemsSource="{Binding Source={x:Reference QuerryPicker} , Path=SelectedItem.Items}"/>
+                            <ImageButton
+                                BackgroundColor="#00000000"
+                                HeightRequest="20"
+                                WidthRequest="20"
+                                Margin="5"
+                                Source="{DynamicResource PageCancelImagePath}"
+                                Command="{Binding Source={x:Reference OptionSearchContentPage}, Path=BindingContext.DeleteItemCommand}"
+                                CommandParameter="{Binding}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout
+                HorizontalOptions="FillAndExpand">
+                <Button
+                    Margin="5"
+                    HeightRequest="35"
+                    HorizontalOptions="Fill"
+                    BackgroundColor="{DynamicResource PageMainColor}"
+                    TextColor="{DynamicResource PageMainTextColor}"
+                    Text="{x:Static res:LanguageResource.OptionSearchAddQuerry}"
+                    Command="{Binding AddItemCommand}"/>
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="5"
+                        HeightRequest="35"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="{DynamicResource PageMainColor}"
+                        TextColor="{DynamicResource PageMainTextColor}"
+                        Text="{x:Static res:LanguageResource.SearchOptionsCancel}"
+                        Command="{Binding CancelCommand}"/>
+                    <Button
+                        Margin="5"
+                        HeightRequest="35"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="{DynamicResource PageMainColor}"
+                        TextColor="{DynamicResource PageMainTextColor}"
+                        Text="{x:Static res:LanguageResource.SearchOptionsAccept}"
+                        Command="{Binding AcceptCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

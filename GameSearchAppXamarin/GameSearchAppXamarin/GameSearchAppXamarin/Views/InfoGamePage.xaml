@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:GameSearchAppXamarin.Models;assembly=GameSearchAppXamarin"
+             xmlns:res="clr-namespace:GameSearchAppXamarin.Resources;assembly=GameSearchAppXamarin"
+             x:Name="InfoGameContentPage"
+             mc:Ignorable="d"
+             x:Class="GameSearchAppXamarin.Views.InfoGamePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout 
+                BackgroundColor="{DynamicResource PageBackgroundColor}"
+                BindingContext="{Binding GameDetails}">
+                <Grid
+                    Padding="10">
+                    <models:SquareView>
+                        <Image 
+                        WidthRequest="100"
+                        Aspect="AspectFill"
+                        Source="{Binding ImageURL}"/>
+                    </models:SquareView>
+                    <Grid 
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1"
+                        BackgroundColor="{DynamicResource PageTransparentLightMainColor}">
+                            <Label 
+                            HorizontalOptions="Center"
+                            FontSize="25" 
+                            Text="{Binding GameName}" 
+                            TextColor="{DynamicResource PageMainTextColor}"/>
+                            <Label
+                            HorizontalOptions="Center"
+                            Text="{Binding ReleasedTime}"
+                            TextColor="{DynamicResource PageMainTextColor}"/>
+                            <StackLayout
+                                HorizontalOptions="Center"
+                                Orientation="Horizontal">
+                                <Label 
+                                FontSize="16"
+                                TextColor="{DynamicResource PageMainTextColor}"
+                                Text="{x:Static res:LanguageResource.InfoGameRaiting}"/>
+                                <Label 
+                                FontSize="16"
+                                TextColor="{DynamicResource PageMainTextColor}"
+                                Text="{Binding GameRating , StringFormat=': {0}'}"/>
+                            </StackLayout>
+                            <StackLayout
+                            HorizontalOptions="Center"
+                            VerticalOptions="FillAndExpand"
+                            Orientation="Horizontal">
+                                <Button
+                                Margin="10"
+                                Text="{x:Static res:LanguageResource.GameItemShare}"
+                                TextColor="{DynamicResource PageMainTextColor}"
+                                Command="{Binding  Source={x:Reference InfoGameContentPage},Path=BindingContext.ShareGameItemCommand}"
+                                BackgroundColor="{DynamicResource PageTransparentMainColor}"/>
+                                <Button
+                                Margin="10"
+                                Text="{Binding LikeTextLabel}"
+                                TextColor="{DynamicResource PageMainTextColor}"
+                                Command="{Binding Source={x:Reference InfoGameContentPage},Path=BindingContext.UnLikeGameItemCommand}"
+                                BackgroundColor="{DynamicResource PageTransparentMainColor}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+                <StackLayout >
+                    <Label 
+                        FontSize="16"
+                        Text="{x:Static res:LanguageResource.InfoGameDescription}"
+                        HorizontalOptions="Center"
+                        TextColor="{DynamicResource PageMainTextColor}"/>
+                    <Grid 
+                        BackgroundColor="{DynamicResource PageMainColor}"
+                        HeightRequest="1"
+                        Margin="20,0,20,0"/>
+                    <Label
+                        Margin="20,5,20,5"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Description}"
+                        TextColor="{DynamicResource PageMainTextColor}"/>
+                    <Grid 
+                        BackgroundColor="{DynamicResource PageMainColor}"
+                        HeightRequest="1"
+                        Margin="20,0,20,0"/>
+                    <Label 
+                        FontSize="16"
+                        Text="{x:Static res:LanguageResource.InfoGameMoreInfo}"
+                        HorizontalOptions="Center"
+                        TextColor="{DynamicResource PageMainTextColor}"/>
+                    <Grid 
+                        BackgroundColor="{DynamicResource PageMainColor}"
+                        HeightRequest="1"
+                        Margin="20,0,20,0"/>
+                    <StackLayout
+                        Margin="20,5,20,5"
+                        Orientation="Horizontal"
+                        HorizontalOptions="Center">
+                        <Label
+                          Text="{x:Static res:LanguageResource.InfoGameLastUpdate}"
+                          TextColor="{DynamicResource PageMainTextColor}"/>
+                        <Label
+                          Text="{Binding LastUpdatedTime,StringFormat=': {0}'}"
+                          TextColor="{DynamicResource PageMainTextColor}"/>
+                    </StackLayout>
+                    <Button
+                        Margin="20,5,20,5"
+                        BackgroundColor="#00000000"
+                        Text="{x:Static res:LanguageResource.InfoGameWebSite}"
+                        TextColor="{DynamicResource PageUrlTextColor}"
+                        Command="{Binding Source={x:Reference InfoGameContentPage},Path=BindingContext.WebsiteGameItemCommand}"/>
+                    <Grid 
+                        BackgroundColor="{DynamicResource PageMainColor}"
+                        HeightRequest="1"
+                        Margin="20,0,20,20"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameSearchAppXamarin.Android", "GameSearchAppXamarin\GameSearchAppXamarin.Android\GameSearchAppXamarin.Android.csproj", "{0AC4E45E-91B9-44C3-B4DF-29CFD66F6BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameSearchAppXamarin", "GameSearchAppXamarin\GameSearchAppXamarin\GameSearchAppXamarin.csproj", "{5D55D76E-CFEE-4D9A-A070-A9160C4DCF3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AC4E45E-91B9-44C3-B4DF-29CFD66F6BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC4E45E-91B9-44C3-B4DF-29CFD66F6BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC4E45E-91B9-44C3-B4DF-29CFD66F6BCF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0AC4E45E-91B9-44C3-B4DF-29CFD66F6BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC4E45E-91B9-44C3-B4DF-29CFD66F6BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC4E45E-91B9-44C3-B4DF-29CFD66F6BCF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5D55D76E-CFEE-4D9A-A070-A9160C4DCF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D55D76E-CFEE-4D9A-A070-A9160C4DCF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D55D76E-CFEE-4D9A-A070-A9160C4DCF3A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5D55D76E-CFEE-4D9A-A070-A9160C4DCF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D55D76E-CFEE-4D9A-A070-A9160C4DCF3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D55D76E-CFEE-4D9A-A070-A9160C4DCF3A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0745ECBB-2639-46A6-9EF5-7DD532814EC6}
+	EndGlobalSection
+EndGlobal

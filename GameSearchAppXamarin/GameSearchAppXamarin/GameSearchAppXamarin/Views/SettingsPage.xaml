@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:res="clr-namespace:GameSearchAppXamarin.Resources;assembly=GameSearchAppXamarin"
+             mc:Ignorable="d"
+             Title="{x:Static res:LanguageResource.MenuSettingLabel}"
+             x:Class="GameSearchAppXamarin.Views.SettingsPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    FontSize="20"
+                    Margin="5"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static res:LanguageResource.SettingThemeLabel}"
+                    TextColor="{DynamicResource PageMainTextColor}"/>
+                <Picker 
+                    HorizontalOptions="FillAndExpand"
+                    Title="{x:Static res:LanguageResource.SettingThemeLabel}"
+                    TitleColor="{DynamicResource PageMainTextColor}"
+                    ItemsSource="{Binding ThemesItems}"
+                    SelectedItem="{Binding CurrentTheme}"
+                    TextColor="{DynamicResource PageMainTextColor}"/>
+                <Button 
+                    Margin="5"
+                    Text="{x:Static res:LanguageResource.SettingSelectButton}" 
+                    Command="{Binding SelectThemeCommand}"
+                    TextColor="{DynamicResource PageMainTextColor}"
+                    BackgroundColor="{DynamicResource PageMainColor}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    FontSize="20"
+                    Margin="5"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static res:LanguageResource.SettingLanguageLabel}"
+                    TextColor="{DynamicResource PageMainTextColor}"/>
+                <Picker 
+                    HorizontalOptions="FillAndExpand"
+                    Title="{x:Static res:LanguageResource.SettingLanguageLabel}"
+                    TitleColor="{DynamicResource PageMainTextColor}"
+                    ItemsSource="{Binding Languages}" 
+                    TextColor="{DynamicResource PageMainTextColor}"
+                    SelectedItem="{Binding CurrentLanguage}"/>
+                <Button 
+                    Margin="5"
+                    Text="{x:Static res:LanguageResource.SettingSelectButton}" 
+                    Command="{Binding SelectLanguageCommand}"
+                    TextColor="{DynamicResource PageMainTextColor}"
+                    BackgroundColor="{DynamicResource PageMainColor}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:res="clr-namespace:GameSearchAppXamarin.Resources;assembly=GameSearchAppXamarin"
+             mc:Ignorable="d"
+             x:Class="GameSearchAppXamarin.Views.MainMenuPage"
+             Title="{x:Static res:LanguageResource.MenuPageTitle}">
+    <ContentPage.Content>
+        <Grid BackgroundColor="{DynamicResource PageMainColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout 
+                Grid.Row="0"
+                Orientation="Horizontal"
+                BackgroundColor="{DynamicResource PageMainColor}"
+                HeightRequest="{Binding NavigationHeight}">
+                <ImageButton
+                    Source="LightBack.png" 
+                    HeightRequest="20"
+                    WidthRequest="20"
+                    BackgroundColor="#00000000"
+                    HorizontalOptions="Center"
+                    Margin="15,5,30,0"
+                    Command="{Binding GoBackImageCommand}"/>
+                <Label 
+                    FontSize="20" 
+                    Text="{x:Static res:LanguageResource.MenuPageTitle}"
+                    TextColor="{DynamicResource PageMainTextColor}"
+                    VerticalTextAlignment="Center"
+                    Margin="0,5,0,0"/>
+            </StackLayout>
+            <ListView
+                Grid.Row="1"
+                BackgroundColor="{DynamicResource PageBackgroundColor}"
+                ItemsSource="{Binding MenuItems}" 
+                x:Name="menuListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout 
+                                Orientation="Horizontal">
+                                <Image 
+                                    Source="{Binding Image}" 
+                                    Margin="5"/>
+                                <Label
+                                    TextColor="{DynamicResource PageMainTextColor}"  
+                                    Text="{Binding Title}"
+                                    VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

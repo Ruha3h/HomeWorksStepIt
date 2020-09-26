@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:res="clr-namespace:GameSearchAppXamarin.Resources;assembly=GameSearchAppXamarin"
+             xmlns:models="clr-namespace:GameSearchAppXamarin.Models;assembly=GameSearchAppXamarin"
+             mc:Ignorable="d"
+             x:Name="LikedGameContentPage"
+             Title="{x:Static res:LanguageResource.MenuLikedGameLabel}"
+             x:Class="GameSearchAppXamarin.Views.LikedGamePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView
+                ItemsSource="{Binding LikedGamesItems}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+                        <Grid
+                            Padding="10">
+                            <models:SquareView 
+                                BackgroundColor="{DynamicResource PageLightMainColor}">
+                                <Image 
+                                    WidthRequest="100"
+                                    Aspect="AspectFill"
+                                    Source="{Binding ImageURL}"/>
+                            </models:SquareView>
+                            <Grid 
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="1"
+                                      BackgroundColor="{DynamicResource PageTransparentLightMainColor}">
+                                    <Label 
+                                        HorizontalOptions="Center"
+                                        FontSize="25" 
+                                        Text="{Binding GameName}" 
+                                        TextColor="{DynamicResource PageMainTextColor}"/>
+                                    <Label
+                                        HorizontalOptions="Center"
+                                        Text="{Binding ReleasedTime}"
+                                        TextColor="{DynamicResource PageMainTextColor}"/>
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        Orientation="Horizontal">
+                                        <Label 
+                                        FontSize="16"
+                                        TextColor="{DynamicResource PageMainTextColor}"
+                                        Text="{x:Static res:LanguageResource.InfoGameRaiting}"/>
+                                        <Label 
+                                        FontSize="16"
+                                        TextColor="{DynamicResource PageMainTextColor}"
+                                        Text="{Binding GameRating , StringFormat=': {0}'}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="FillAndExpand"
+                                        Orientation="Horizontal">
+                                        <Button
+                                            Margin="10"
+                                            Text="{x:Static res:LanguageResource.GameItemDeteils}"
+                                            TextColor="{DynamicResource PageMainTextColor}"
+                                            Command="{Binding  Source={x:Reference LikedGameContentPage},Path=BindingContext.ViewGameItemCommand}"
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="{DynamicResource PageTransparentMainColor}"/>
+                                        <Button
+                                            Margin="10"
+                                            Text="UnLike"
+                                            TextColor="{DynamicResource PageMainTextColor}"
+                                            Command="{Binding Source={x:Reference LikedGameContentPage},Path=BindingContext.UnLikeGameItemCommand}"
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="{DynamicResource PageTransparentMainColor}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
